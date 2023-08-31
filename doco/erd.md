@@ -20,7 +20,7 @@ erDiagram
     DIVISION  |o--o{ COHORT : ""
 
     COHORT    ||--o{ TEAM    : ""
-    TEAM_RANK |O--o{ TEAM    : ""
+    TEAM_RANK |o--o{ TEAM    : ""
     TEAM      ||--o{ ROUTINE : ""
 
 ```
