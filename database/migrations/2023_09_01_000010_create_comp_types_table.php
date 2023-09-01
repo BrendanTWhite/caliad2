@@ -13,8 +13,27 @@ return new class extends Migration
     {
         Schema::create('comp_types', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name')->unique();
+
             $table->timestamps();
         });
+
+        // This is a reference table with data that
+        // rarely if ever changes
+
+        DB::table('comp_types')->insert([
+
+            [
+                'id'         => 1,
+                'name'       => 'CASA Competitions', 
+            ], [
+                'id'         => 2,
+                'name'       => 'PHCC Concert', 
+            ]
+
+        ]);
+
     }
 
     /**

@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('comp_type_id')->constrained();
+
+            $table->string('name');
+            $table->date('start_date');
+            $table->date('end_date');
+
+            $table->unique(['name', 'start_date']);
+
             $table->timestamps();
         });
     }

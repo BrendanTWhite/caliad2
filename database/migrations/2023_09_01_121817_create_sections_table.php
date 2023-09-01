@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('session_id')->constrained();            
+
+            $table->integer('sequence');
+
+            $table->unique(['session_id', 'sequence']);
+            
             $table->timestamps();
         });
     }

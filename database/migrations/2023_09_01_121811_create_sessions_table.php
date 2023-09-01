@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('competition_id')->constrained();
+
+            $table->dateTime('start');
+            $table->string('name')->nullable();
+
+            $table->unique(['competition_id', 'start']);
+
             $table->timestamps();
         });
     }
