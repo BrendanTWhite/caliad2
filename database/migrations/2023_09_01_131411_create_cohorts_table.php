@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('cohorts', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('club_id')->constrained();
+            $table->foreignId('age_group_id')->constrained();
+            $table->integer('year');
+
+            $table->unique(['club_id', 'age_group_id', 'year']);
+
+            $table->foreignId('division_id')->constrained();
+
             $table->timestamps();
         });
     }

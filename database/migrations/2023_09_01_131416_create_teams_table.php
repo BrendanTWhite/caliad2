@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('cohort_id')->constrained();
+            
+            $table->integer('team_rank');
+
+            $table->unique(['cohort_id', 'team_rank']);
+
+            $table->string('name')->nullable();
+
             $table->timestamps();
         });
     }
